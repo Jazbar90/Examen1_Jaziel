@@ -1,0 +1,47 @@
+﻿@page
+@model WebApp.Pages.Inquilino.GridModel
+@{
+}
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            Inquilino
+        </div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered table table-striped table table-hover">
+                        <thead>
+                            <tr>
+                                <th>IDInquilino</th>
+                                <th>Descripcion</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.GridList)
+                            {
+                            <tr>
+                                <td>@item.Id_TipoInquilino</td>
+                                <td>@item.Descripcion</td>
+                                <td>@item.Estado</td>
+                                <td>
+                                    <a class="btn btn-primary"asp-page="Edit" asp-route-id="@item.Id_TipoInquilino"><box-icon type='solid' name='edit-alt'></box-icon></a>
+
+                                    <button type="button" class="btn btn-danger" onclick="InquilinoGrid.OnclickEliminar(@item.Id_TipoInquilino)">
+                                        <box-icon type='solid' name='trash'></box-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
